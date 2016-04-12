@@ -1,0 +1,18 @@
+base: &base
+  client_id:     253046335e8660b22aa6a8f2e9f42aec
+  client_secret: 13ba2dfd548a115dede86fa9e40b170d
+  sign_token:    secret
+  verify_token:  secret
+  algorithm:     HS256
+  default_scope: default
+
+development:
+  <<: *base
+
+test:
+  <<: *base
+
+production:
+  <<: *base
+  sign_token:    <%= ENV['SECRET_KEY_BASE'] %>
+  verify_token:  <%= ENV['SECRET_KEY_BASE'] %>

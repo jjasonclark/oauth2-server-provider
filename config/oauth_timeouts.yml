@@ -1,0 +1,7 @@
+default:
+  client:
+    access_token: <%= 1.hour %>
+  user:
+    access_token: <%= 1.day %>
+    authorization_code: <%= 10.minutes %>
+    refresh_token: <%= 6.months %>

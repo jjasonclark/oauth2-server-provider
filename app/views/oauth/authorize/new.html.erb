@@ -1,0 +1,22 @@
+<h1>Authorize for <%= @oauth_client.name %></h1>
+<div>
+  <%= form_tag oauth_authorize_path do %>
+    <div>
+      <p>Enter the number of seconds until the authorization expires</p>
+      <%= label_tag :timeout, 'Timeout' %>
+      <%= number_field_tag :timeout, '1' %>
+    </div>
+    <%= hidden_field_tag :authorize, true %>
+    <%= hidden_field_tag :client_id, @oauth_client.client_id %>
+    <%= hidden_field_tag :scope, @scope %>
+    <%= hidden_field_tag :state, @state %>
+    <br>
+    <%= submit_tag 'Authorize' %>
+  <% end -%>
+  <%= form_tag oauth_authorize_path do %>
+    <%= hidden_field_tag :reject, true %>
+    <%= hidden_field_tag :client_id, @oauth_client.client_id %>
+    <%= hidden_field_tag :state, @state %>
+    <%= submit_tag 'Do not authorize' %>
+  <% end -%>
+</div>
